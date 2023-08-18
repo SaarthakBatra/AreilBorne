@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --HTML_BG: white;
+    --Card_BG: white;
+    --Header_BG: white;
+    --borderRadius: 30px;
+    --margin: clamp(5px, 0.5vw + 1px, 10px);
+    --fontSize: clamp(1rem, 1vw + .5rem, 1.5rem);
+  }
+
+   
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+html {
+  background: red;                /*For debugging*/
+}
+  
+body {
+  display: grid;
+    height: 100vh;                  /* Backup Height */
+    height: 100svh;                 /* Main Height in small view port units */ 
+    width: auto;
+  place-items: center;
+  background: var(--HTML_BG);
+  font-family: 'Montserrat', sans-serif;
+  /* font-size: clamp(2rem, 5vw + .5rem, 3rem); */
+  color: white;
+}
+
+.Logo {
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    background-color: black;
+}
+
+.Name {
+    margin: 10px 10px 10px 0;
+}
+
+.Wrapper {
+    display: block;
+        width: 100%;
+        height: 100%;
+    /* background-color: pink; */
+
+}
+
+#MainBodyWrapper {
+    /* background-color: var(--HTML_BG); */
+}
+
+.MainHeader {
+    display: grid;
+    position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100px;
+    /* overflow: hidden; */
+    /* visibility: hidden; */
+    /* background-color: red; */
+}
+
+#HeaderWrapper {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 2fr 2fr;
+        width: 100%;
+        height: 90px;
+    align-items: center;
+    padding: 10px 0px 0px 40px;
+    /* overflow: hidden; */
+    /* background-color: red; */
+}
+
+#HeaderWrapper::before {
+    /* visibility: hidden; */
+    content: "";
+    position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 10px;    
+    background-color: var(--Header_BG);
+}
+
+#HeaderLogo {
+    display: grid;
+    /* position: relative; */
+        grid-template-columns: 1fr .5fr;
+        grid-template-rows: 1fr .5fr;
+        /* width: 22rem; */
+        /* height: 100%; */
+    /* place-content: center; */
+    /* background-color: beige; */
+}
+
+#HeaderLogo a {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100%;
+    place-items: center;
+    border-radius: 0 0 30px;
+    color: black;
+    background-color: var(--Header_BG);
+}
+
+#HeaderLogo svg {
+        width: 30px;
+        height: auto;
+    fill: var(--Header_BG);
+}
+
+#HeaderNavMenu {
+    display: grid;
+        height: 40%;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.689);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* overflow: hidden; */
+    padding: 0 25px 0 0;
+    border-radius: 40px;
+    box-shadow: 0 0 15px rgba(0,0,0,.25);
+    translate: -5% -40%;
+    transition: .3s;
+}
+
+#HeaderNavMenu ul {
+    display: grid;
+        grid-template-columns: 1fr 1fr 1.25fr 1fr .1fr .1fr;
+    align-items: center;
+    list-style: none;
+}
+
+.navLink {
+    display: grid;
+    place-items: center;
+    padding: 0 20px 0 20px;
+    /* background-color: bisque; */
+
+}
+
+#HeaderNavMenu ul li a{
+    color: black;
+}
+
+.social {
+    display: grid;
+    width: 30px;
+    padding: 0 5px 0 5px;
+    /* background-color: aqua; */
+}
+
+#HeaderSearch {
+    display: grid;
+    grid-template-columns: .1fr 1fr;
+        width: 50%;
+        height: 40%;
+    place-items: center;
+    translate: 0 -40%;
+    /* background-color: purple; */
+
+}
+
+.SearchIcon {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+        width: 25px;
+        aspect-ratio: 1;
+    place-items: center;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 0 0 10px;
+    background-color: rgba(255, 255, 255, 0.689);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    z-index: 10;
+}
+
+.SearchIcon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.SearchInput {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+    display: grid;
+    /* position: absolute; */
+        /* top: 32%;  */
+        width: 80%;
+        height: 100%;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.689);
+    box-shadow: 0 0 15px rgba(0,0,0,.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 35px;
+    padding: 0 5px 0 50px;
+    /* opacity: 0; */
+    transition: .5s;
+}
+
+.SearchInput input {
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    /* padding: 20px; */
+}
+
+.SearchInput input:focus {
+    outline: none;
+}
+ 
+.Home {
+    display: grid;
+        width: 100%;
+        height: 100%;
+    place-items: center;
+    /* background-color: blue; */
+}
+
+#HomeWrapper {
+    display: grid;
+        grid-template-columns: 4.5fr 1fr;
+        grid-row: 1fr;
+}
+
+#MainCard {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+     grid-template-columns: 1fr 1fr;
+     grid-template-rows: 1fr 1fr;
+    padding: 10px 0 40px 40px;
+    /* background-color: bisque; */
+}
+
+#MainCard video {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+        width: 100%;
+        height: 100%;
+    object-fit: cover;
+    border-radius: 30px 30px 30px 0;
+    overflow: hidden;
+}
+
+#MainCardHeading {
+    grid-column: 1;
+    grid-row: 2;
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr .4fr;
+        height: 60%;
+    align-self: end;
+    background-color: var(--HTML_BG);
+    border-radius: 0 30px 0 0;
+    /* display: none; */
+    /* position: absolute; */
+}
+
+#MainCardHeading h1 {
+    padding: 20px 0 0 0;
+    font-weight: 500;
+    font-size: 2.2rem;
+    color: black;
+}
+
+#MainCardHeading h1 span{
+    font-size: 3rem;
+    line-height: 4rem;
+}
+
+#MainCardHeading svg {
+    position: absolute;
+    width: 30px;
+    height: auto;
+    transform: rotate(-90deg);
+    fill: var(--HTML_BG);
+}
+
+#MainCardHeading svg:first-child {
+    bottom: 0;
+    right: -30px;
+}
+
+#MainCardHeading svg:last-child {
+    top: -30px;
+    left: 0px;
+}
+
+#BookNowButton {
+    grid-row: 2;
+        width: 30%;
+        height: 90%;
+    font-size: 1.25rem;
+    justify-self: start;
+    border-radius: 30px;
+    background-color: transparent;
+}
+
+#ScrollDownButton {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+        width: 70px;
+        height: 70px;
+    align-self: end;
+    justify-self: center;
+    place-items: center;
+    border-radius: 40px;
+    font-size: 2.5rem;
+    margin-bottom: 10%;
+    background-color: rgba(255, 255, 255, 0.689);
+    box-shadow: 0 0 15px rgba(0,0,0,.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);    
+}
+
+#SideCards {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+        grid-template-rows: 1.25fr 1fr 1fr;
+        height: 95%;
+    place-items: center;
+    padding: 10px 10px 0 0;
+    /* overflow: hidden; */
+    /* background-color: green; */
+}
+
+#SideCard1 {
+    /* display: none; */
+    height: 85%;
+    aspect-ratio: 1;
+    background-color: bisque;
+    border-radius: 50%;
+}
+
+#SideCard2 {
+    display: grid;
+        width: 90%;
+        height: 95%;
+    place-items: end;
+    background-image: url(Assets/img2.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    background-color: bisque;
+}
+
+#SC2_ButtonWrapper {
+    position: relative;
+    padding: 10px 0 0 10px;
+    border-radius: 30px 0 0 0;
+    background-color: var(--HTML_BG);
+}
+
+#SideCard2 svg {
+    position: absolute;
+    width: 30px;
+    height: auto;
+    transform: rotate(180deg);
+    fill: white;
+}
+
+#SideCard2 svg:first-child {
+    top: -30px;
+    right: 0;
+}
+
+#SideCard2 svg:last-child {
+    left: -30px;
+    bottom: 0;
+}
+
+#SC2_Button {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+#SideCard3 {
+    display: grid;
+    width: 90%;
+    height: 95%;
+place-items: end;
+border-radius: 30px;
+background-color: bisque;
+}
+
+#SC2_ButtonWrapper {
+position: relative;
+padding: 10px 0 0 10px;
+border-radius: 30px 0 0 0;
+background-color: var(--HTML_BG);
+}
+
+#SideCard3 svg {
+    position: absolute;
+    width: 30px;
+    height: auto;
+    transform: rotate(180deg);
+    fill: white;
+}
+
+#SideCard3 svg:first-child {
+    top: -30px;
+    right: 0;
+}
+
+#SideCard3 svg:last-child {
+    left: -30px;
+    bottom: 0;
+}
+
+.HomeHero_HomeHero__dzWAE {
+    display: none;
+}
+
+.Content {
+    width: 100%;
+    height: 100%;
+    background-color: purple;
+}
+
+.Services {
+    width: 100%;
+    height: 100%;
+    background-color: skyblue;
+}
+
+.Contact {
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+}
+
+.WhyUs {
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+} 
+
+.USP {
+    width: 100%;
+    height: 100%;
+    background-color: moccasin;
+}
+
+.MainFooter {
+    width: 100%;
+    height: 100%;
+    background-color: green;
+}
+
