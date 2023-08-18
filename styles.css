@@ -359,7 +359,7 @@ body {
         width: 90%;
         height: 95%;
     place-items: end;
-    background-image: url(Assets/img2.jpg);
+    background-image: url(img2.jpg);
     background-size: cover;
     background-position: center;
     border-radius: 30px;
