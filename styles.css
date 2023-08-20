@@ -8,8 +8,8 @@
     --LogoHeight: 50px;
 
     --HomePageHeight: calc(100svh - 50px);
-    --ServicesPageHeight: calc(100vh - 60px);
-    --WhyUsPageHeight: calc(90vh - 70px);
+    --ServicesPageHeight: calc(100svh - 60px);
+    --WhyUsPageHeight: calc(90svh - 70px);
 
     --MainCardFlexVal: 4;
     --ScrollServiceCardWidth: 30vw;
@@ -43,8 +43,8 @@
         --LogoHeight: 30px;
 
         --HomePageHeight: calc(200svh - 50px);
-        --ServicesPageHeight: calc(150vh - 60px);
-        --WhyUsPageHeight: calc(225vh - 70px);
+        --ServicesPageHeight: calc(150svh - 60px);
+        --WhyUsPageHeight: calc(225svh - 70px);
 
         --MainCardFlexVal: 1;
         --ScrollServiceCardWidth: 80vw;
