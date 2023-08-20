@@ -7,7 +7,7 @@
     --HeaderHeight: 25%;
     --LogoHeight: 50px;
 
-    --HomePageHeight: calc(100vh - 50px);
+    --HomePageHeight: calc(100svh - 50px);
     --ServicesPageHeight: calc(100vh - 60px);
     --WhyUsPageHeight: calc(90vh - 70px);
 
@@ -42,7 +42,7 @@
         --HeaderHeight: 5%;
         --LogoHeight: 30px;
 
-        --HomePageHeight: calc(200vh - 50px);
+        --HomePageHeight: calc(200svh - 50px);
         --ServicesPageHeight: calc(150vh - 60px);
         --WhyUsPageHeight: calc(225vh - 70px);
 
@@ -587,15 +587,8 @@ body {
     transform: rotate(-45deg);
 }
 
-#ScrollServices1 {
-    /* background-color: aquamarine; */
-
-}
-
 #ScrollServices2 {
     margin-top: 10px;
-    /* background-color: cornflowerblue; */
-
 }
 
 /*----------- Contact Now -----------*/
@@ -780,10 +773,6 @@ body {
     margin-left: var(--USP_ContentMargin);
     padding: 2.5%;
     background-color: #C8E4B2;
-}
-
-#USP_ContentMainHeading {
-    /* margin-bottom: 10%; */
 }
 
 #USP_ContentMainHeading h1{
