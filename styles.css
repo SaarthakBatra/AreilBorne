@@ -150,7 +150,7 @@ body {
     place-items: center;
     border-radius: 100%;
     font-size: 1.5rem;
-    padding-bottom: 3px;
+    padding-bottom: 5px;
     background-color: black;
     color: white;
     border: 2px black solid;
@@ -560,9 +560,10 @@ body {
     place-self: center;
     border: none;
     border-radius: 100%;
-    font-size: var(--HomeHeadingFontSize1);
+    font-size: 1.5rem;
     font-weight: 100;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    padding-bottom: 5px;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
