@@ -5,6 +5,7 @@
     --PagePadding: 10px 0 40px 0;
     --HTMLPadding: 41px;
     --HeaderHeight: 25%;
+    --HeaderMainWrapperGridTemp: 1fr 2.75fr 2.5fr;
     --LogoHeight: 50px;
 
     --HomePageHeight: calc(100svh - 50px);
@@ -20,6 +21,7 @@
     --USP_MainImgBorder: 30px;
     --USP_ContentBorder: 30px;
     --USP_ContentMargin: 10px;
+    --WhyUsCard1_Padding: 10px;
 
     --MainNavBarDisplay: grid;
     --MobileNavBarButtonDisplay: none;
@@ -44,6 +46,7 @@
     :root {
         --HTMLPadding: 11px;
         --HeaderHeight: 5%;
+        --HeaderMainWrapperGridTemp: 2fr 3fr;
         --LogoHeight: 30px;
 
         --HomePageHeight: calc(200svh - 50px);
@@ -59,6 +62,7 @@
         --USP_MainImgBorder: 30px 30px 0 0;
         --USP_ContentBorder: 0 0 30px 30px;
         --USP_ContentMargin: 0;
+        --WhyUsCard1_Padding: 0;
 
         --MainNavBarDisplay: none;
         --MobileNavBarButtonDisplay: grid;
@@ -185,14 +189,8 @@ body {
 
 #HeaderMainWrapper {
     display: grid;
-        grid-template-columns: 1fr 2.75fr 2.5fr;
+        grid-template-columns: var(--HeaderMainWrapperGridTemp);
         grid-template-rows: 1fr;
-}
-
-@media only screen and (min-width: 200px) and (max-width: 860px)  {
-    #HeaderMainWrapper {
-            grid-template-columns: 2fr 3fr;
-    }
 }
 
 /* Header Logo */
@@ -921,7 +919,7 @@ body {
 .WhyUsCard:first-of-type {
     grid-column: 1;
     grid-row: 2;
-    padding-left: 10px;
+    padding-left: var(--WhyUsCard1_Padding);
 }
 
 .WhyUsCard:first-of-type .Wrapper {
