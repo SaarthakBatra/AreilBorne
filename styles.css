@@ -109,6 +109,7 @@ body {
 .Name {
     color: black;
     font-size: var(--logoFontSize);
+    margin-right: 10%;
 }
 
 .CardButtonWrapper {
@@ -309,9 +310,7 @@ body {
         position: absolute;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr;
-            top: 0%;
-            left: 0px;
-            width: calc(100% - 20px);
+            top: 0;
         margin: 0;
         padding: 80px 0 0 0;
         box-shadow: none;
@@ -322,12 +321,20 @@ body {
 
     #MainNavBar[data-status="inactive"] ul{
         visibility: hidden;
-        height: 0;
+            height: 0;
+            width: 0;
+            left: 95%;
     }
 
     #MainNavBar[data-status="active"] ul{
         visibility: visible;
-        height: 50vh;
+            height: 50vh;
+            width: calc(100% - 20px);
+            left: 0;
+    }
+
+    #MainNavBar[data-status="inactive"] ul li{
+        visibility: hidden;
     }
 
     .navLink {
@@ -812,6 +819,11 @@ body {
     translate: 3px 3px 0;
 }
 
+#ContactNowButton button:active {
+    box-shadow: 2px 2px #91C8E4;
+    translate: 6px 6px 0;
+}
+
 /*----------- Why Us -------------*/
 
 #WhyUs {
@@ -862,7 +874,16 @@ body {
         width: 95%;
         height: 70vh;
     margin: 0 10px 0 0;
+    transition: .25s;
     /* background-color: aqua; */
+}
+
+.WhyUsCard:hover {
+    translate: 0 -10px 0;
+}
+
+.WhyUsCard:hover button {
+    transform: rotate(-45deg);
 }
 
 .WhyUsCard:first-of-type {
