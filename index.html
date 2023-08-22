@@ -27,7 +27,7 @@
                         </div>
                     </div>
 
-                    <nav id="MainNavBar">
+                    <nav id="MainNavBar" data-status="inactive">
                         <ul>
                             <li class="navLink">
                                 <a href="">About</a>
@@ -61,18 +61,18 @@
                     </nav>
 
                     <div id="MobileNavBarButton">
-                        <button>Menu</button>
+                        <button onclick="NavButtonClick()">Menu</button>
                     </div>
 
-                    <div id="HeaderSearch">
+                    <div id="HeaderSearch" data-status="inactive">
                         <div id="HeaderSearchWrapper" class="Wrapper">
-                            <div class="SearchIcon">
+                            <div id="SearchIcon" onclick="SearchButtonClick()">
                                 <svg width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="25.4375" cy="16.5657" r="14.5657" stroke="black" stroke-width="4"></circle>
                                     <path d="M14.1482 27.852L1.99999 40.0002" stroke="black" stroke-width="4"></path>
                                 </svg>
                             </div>
-                            <div class="SearchInput">
+                            <div id="SearchInput">
                                 <input type="text" placeholder="Search here..." value="">
                             </div>
                         </div>
@@ -95,7 +95,40 @@
                         <button title="Scroll Down" class="circularButton" id="ScrollDownButton">&#8595</button>
                     </div>
                     <div id="SideCards">
-                        <div id="SideCard1"></div>
+                        <div id="SideCard1">
+                            <div id="SC1_Wrapper">
+                                <div id="SC1_Page1" class="SC1_Pages">
+                                    <header>
+                                        <h1>Page1</h1>
+                                    </header>
+                                    <footer>
+                                        <div id="SC1_P1BookMark" class="SC1_BookMark"></div>
+                                        <div class="SC1_BookMark"></div>
+                                        <div class="SC1_BookMark"></div>
+                                    </footer>
+                                </div>
+                                <div id="SC1_Page2" class="SC1_Pages">
+                                    <header>
+                                        <h1>Page2</h1>
+                                    </header>
+                                    <footer>
+                                        <div class="SC1_BookMark"></div>
+                                        <div id="SC1_P2BookMark" class="SC1_BookMark"></div>
+                                        <div class="SC1_BookMark"></div>
+                                    </footer>
+                                </div>
+                                <div id="SC1_Page3" class="SC1_Pages">
+                                    <header>
+                                        <h1>Page3</h1>
+                                    </header>
+                                    <footer>
+                                        <div class="SC1_BookMark"></div>
+                                        <div class="SC1_BookMark"></div>
+                                        <div id="SC1_P3BookMark" class="SC1_BookMark"></div>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
 
                         <a id="SideCard2" class="" href="">
                             <div class="Wrapper">
@@ -342,10 +375,7 @@
                                                 <path d="m100,0H0v100C0,44.77,44.77,0,100,0Z" fill="#F9F8F6"></path>
                                             </svg>
                                             <div class="Button_Arrow__LawjV">
-                                                <svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0.857198 13.7372L27.9141 13.7372" stroke="black" stroke-width="3"></path>
-                                                    <path d="M15.4561 1.39417L27.9142 13.8522L15.4561 26.3104" stroke="black" stroke-width="3"></path>
-                                                </svg>
+                                                
                                             </div>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                                                 <path d="m100,0H0v100C0,44.77,44.77,0,100,0Z" fill="#F9F8F6"></path>

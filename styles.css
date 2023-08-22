@@ -11,6 +11,10 @@
     --ServicesPageHeight: calc(100svh - 60px);
     --WhyUsPageHeight: calc(90svh - 70px);
 
+    --SideCards_Padding: 0 10px 0 10px;
+    --SideCard1_Width: auto;
+    --SideCard1_AspectRatio: 1;
+    --SideCard1_BorderRadius: 100%;
     --MainCardFlexVal: 4;
     --ScrollServiceCardWidth: 30vw;
     --USP_MainImgBorder: 30px;
@@ -46,6 +50,10 @@
         --ServicesPageHeight: calc(150svh - 60px);
         --WhyUsPageHeight: calc(225svh - 70px);
 
+        --SideCards_Padding: 20px 10px 0 10px;
+        --SideCard1_Width: 100%;
+        --SideCard1_AspectRatio: auto;
+        --SideCard1_BorderRadius: 30px;
         --MainCardFlexVal: 1;
         --ScrollServiceCardWidth: 80vw;
         --USP_MainImgBorder: 30px 30px 0 0;
@@ -101,7 +109,6 @@ body {
 .Name {
     color: black;
     font-size: var(--logoFontSize);
-    padding-left: 10px;
 }
 
 .CardButtonWrapper {
@@ -226,7 +233,8 @@ body {
 /* Navigation Bar */
 
 #MainNavBar {
-    display: var(--MainNavBarDisplay);
+    /* display: var(--MainNavBarDisplay); */
+    display: grid;
         height: 100%;
         width: 100%;
     align-items: center;
@@ -235,26 +243,30 @@ body {
 
 #MainNavBar ul{
     display: grid;
-        grid-template-columns: 1fr 1fr 1.5fr 1fr .1fr .1fr;
+        grid-template-columns: 1fr 1fr 1.15fr 1fr .1fr .1fr;
         grid-template-rows: 1fr;
+        height: 50%;
     list-style: none;
     margin: 0 20px 0 20px;
-    padding: 10px 40px 10px 0px;
+    padding: 0 40px 0 20px;
     border-radius: 40px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
-
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-.navLink{
+.navLink {
     display: grid;
         width: 95%;
         height: 100%;
     place-items: center;
-    margin: 0 0px 0 0px;
-    /* background-color: red; */
+    transition: .2s;
+}
+
+.navLink:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .navLink a{ color: black; }
@@ -272,20 +284,75 @@ body {
 }
 
 #MobileNavBarButton {
+    position: absolute;
     display: var(--MobileNavBarButtonDisplay);
+        top: 25px;
+        right: 10px;
     align-items: center;
     justify-items: end;
-    padding: 0 40px 0 0;
+    padding: 0 30px 0 0;
     /* background-color: red; */
 }
 
 #MobileNavBarButton button{
-        height: 70%;
-        width: 40%;
+        height: auto;
+        width: auto;
     border-radius: 30px;
     border: 2px black solid;
+    padding: 10px;
     font-size: 1rem;
     background-color: transparent;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 860px)  {
+    #MainNavBar ul{
+        position: absolute;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            top: 0%;
+            left: 0px;
+            width: calc(100% - 20px);
+        margin: 0;
+        padding: 80px 0 0 0;
+        box-shadow: none;
+        overflow: hidden;
+        transition: .25s;
+        z-index: -1;
+    }
+
+    #MainNavBar[data-status="inactive"] ul{
+        visibility: hidden;
+        height: 0;
+    }
+
+    #MainNavBar[data-status="active"] ul{
+        visibility: visible;
+        height: 50vh;
+    }
+
+    .navLink {
+        display: grid;
+            width: 100%;
+            height: 100%;
+    }
+
+    .navLink:hover {
+        box-shadow: none;
+    }
+
+    .socialLink {
+        position: absolute;
+            top: 30px;
+            left: 48%;
+            width: 40px;
+            height: 40px;
+        place-items: center;
+        margin: 0;
+    }
+
+    #MainNavBar ul li:last-child {
+        left: 58%;
+    }
 }
 
 /* Search Box */
@@ -295,7 +362,6 @@ body {
         height: 100%;
         width: 100%;
     align-items: center;
-    padding-left: 10px;
     /* background-color: burlywood; */
 }
 
@@ -304,17 +370,29 @@ body {
         grid-template-columns: .1fr 1fr;
         grid-template-rows: 1fr;
         height: 50%;
-        width: 35%;
     align-items: center;
     border-radius: 40px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
     padding: 0 10px 0 10px;
+    transition: width 1s, background-color 1s;
+}
+
+#HeaderSearch[data-status="inactive"] #HeaderSearchWrapper {
+        width: 5%;
+    box-shadow: none;
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+#HeaderSearch[data-status="active"] #HeaderSearchWrapper {
+        width: 38%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-.SearchIcon {
+#SearchIcon {
     display: grid;
         width: 50%;
         aspect-ratio: 1;
@@ -328,12 +406,12 @@ body {
     -webkit-backdrop-filter: blur(10px);
 }
 
-.SearchIcon svg {
+#SearchIcon svg {
     height: 20px;
     aspect-ratio: 1;
 }
 
-.SearchInput input{
+#SearchInput input{
         width: 100%;
         height: 30px;
     border: none;
@@ -341,7 +419,15 @@ body {
     background-color: transparent;
 }
 
-.SearchInput input:focus{
+#HeaderSearch[data-status="inactive"] #SearchInput {
+    display: none;
+}
+
+#HeaderSearch[data-status="active"] #SearchInput {
+    display: block;
+}
+
+#SearchInput input:focus{
     outline: none;
 }
 
@@ -436,8 +522,21 @@ body {
     font-size: var(--BookNowButtonFontSize);
     justify-self: start;
     border-radius: 30px;
+    border: 2px black solid;
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.25);
     background-color: transparent;
+    transition: .25s;
 
+}
+
+#BookNowButton:hover {
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
+    translate: 3px 3px 0;
+}
+
+#BookNowButton:active {
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+    translate: 6px 6px 0;
 }
 
 #ScrollDownButton {
@@ -447,11 +546,24 @@ body {
         width: 15%;
         aspect-ratio: 1;
     place-self: center;
-    border: 2px black solid;
+    border: none;
     border-radius: 100%;
-    font-size: 1.5rem;
-    font-weight: 800;
-    background-color: transparent;
+    font-size: var(--HomeHeadingFontSize1);
+    font-weight: 100;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: .25s;
+}
+
+#ScrollDownButton:hover {
+    transform: scale(.9);
+    box-shadow: 0 0 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+#ScrollDownButton:active {
+    transform: scale(.85);
 }
 
 #SideCards {
@@ -462,28 +574,61 @@ body {
         height: 100%;
         width: auto;
     place-items: center;
-    padding: 0 10px 0 10px;
+    padding: var(--SideCards_Padding);
     /* background-color: cornflowerblue; */
 }
 
 #SideCard1 {
         height: 95%;
-        aspect-ratio: 1;
-    border-radius: 100%;
+        width: var(--SideCard1_Width);
+        aspect-ratio: var(--SideCard1_AspectRatio);
+    border-radius: var(--SideCard1_BorderRadius);
+    overflow: hidden;
     background-color: bisque;
 }
 
-@media only screen and (min-width: 200px) and (max-width: 860px)  {
-    #SideCards {
-        padding: 20px 10px 0 10px;
-    }
-    
-    #SideCard1 {
-        width: 100%;
-        aspect-ratio: auto;
-    border-radius: 30px;
-    background-color: bisque;
+#SC1_Wrapper {
+    display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        height: 100%;
+        width: 300%;
+    place-items: center;
+    animation-name: SC1_Animation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    /* background-color: pink; */
 }
+
+.SC1_Pages {
+    display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr .2fr;
+        height: 100%;
+        width: 100%;
+    place-items: center;
+    /* background-color: aliceblue; */
+}
+
+.SC1_Pages footer {
+    display: flex;
+    flex-direction: row;
+        height: 100%;
+        width: 100%;
+    justify-content: center;
+    /* background-color: #4682A9; */
+}
+
+.SC1_BookMark{
+    height: 10px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    margin: 5px;
+    background-color: rgb(220, 194, 163);
+}
+
+#SC1_P1BookMark, #SC1_P2BookMark, #SC1_P3BookMark{
+    background-color: rgb(147, 127, 102);
 }
 
 
@@ -506,6 +651,19 @@ body {
     border-radius: 30px 30px 0 30px;
     background-color: darkseagreen;
 }
+
+#SideCard2:hover button, #SideCard3:hover button {
+    transform: rotate(-45deg);
+}
+
+@keyframes SC1_Animation {
+    0%   {translate: 0 0 0}
+    30%  {translate: 0 0 0}
+    33%  {translate: -33.3% 0 0}
+    60%  {translate: -33.3% 0 0}
+    66%  {translate: -66.6% 0 0}
+    100%  {translate: -66.6% 0 0}
+  }
 
 /*--------------- Services -------------*/
 
@@ -640,11 +798,18 @@ body {
     width: auto;
     height:auto;
     border-radius: 30px;
+    cursor: pointer;
     padding: 20px 30px 20px 30px;
     background-color: #91C8E4;
     border: 2px white solid;
+    box-shadow: 8px 8px #91C8E4;
     color: white;
     font-size: var(--HomeHeadingFontSize1);
+}
+
+#ContactNowButton button:hover {
+    box-shadow: 5px 5px #91C8E4;
+    translate: 3px 3px 0;
 }
 
 /*----------- Why Us -------------*/
