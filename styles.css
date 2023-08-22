@@ -147,6 +147,7 @@ body {
     font-weight: bolder;
     background-color: black;
     color: white;
+    border: 2px black solid;
     transition: .25s;
 }
 
